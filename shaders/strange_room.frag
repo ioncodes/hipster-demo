@@ -1,4 +1,6 @@
-// from https://www.shadertoy.com/view/Mdl3Rr
+#version 140
+
+out vec4 color;
 
 #define GLSLSANDBOX
 #ifdef GLSLSANDBOX
@@ -478,6 +480,6 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 
 #ifdef GLSLSANDBOX
 void main() {
-  mainImage(gl_FragColor, gl_FragCoord.xy);
+  mainImage(color, gl_FragCoord.xy);
 }
 #endif /*GLSLSANDBOX*/

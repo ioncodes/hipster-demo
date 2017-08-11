@@ -1,5 +1,8 @@
+#version 140
+
 uniform float time;
 uniform vec2 resolution;
+out vec4 color;
 
 void main() {
 	vec2 r = resolution,
@@ -8,5 +11,5 @@ void main() {
 	vec4 s = .15*sin(1.5*sin(time+o.x)*vec4(0,1,2,3) + o.y + sin(o.y+(time/2.0))),
 	e = s.wxyz, 
 	f = max(o.x-s,e-o.x);
-	gl_FragColor = dot(clamp(f*r.y,0.,1.), 42.*(s-e)) * (s-.1) + f;
+	color = dot(clamp(f*r.y,0.,1.), 42.*(s-e)) * (s-.1) + f;
 }

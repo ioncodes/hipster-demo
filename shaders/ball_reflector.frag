@@ -1,17 +1,11 @@
-// some naive approach to Absolute Territory by Prismbeings (http://www.pouet.net/prod.php?which=69642) --novalis
-
-#ifdef GL_ES
-	precision highp float;
-#endif
-
-#extension GL_OES_standard_derivatives : enable
+#version 140
 
 uniform float time;
 uniform vec2 resolution;
+out vec4 fragColor;
 
 #define EPS 1e-4
 
-// http://byteblacksmith.com/improvements-to-the-canonical-one-liner-glsl-rand-for-opengl-es-2-0/
 highp float rand(vec2 co) {
 	float dt= dot(co.xy,vec2(12.9898,78.233));
 	return fract(sin(mod(dt,3.1416))*43758.5453);
@@ -128,6 +122,6 @@ vec3 ro = vec3(-1.5-.2*sin(time),-.2+.2*cos(time),1.+.8*cos(time));
 		color = vec3(0.);
 	}
 	
-	gl_FragColor = vec4((pow(color, vec3(1./1.3))+0.04*rand(3.*uv)), 1.);
+	fragColor = vec4((pow(color, vec3(1./1.3))+0.04*rand(3.*uv)), 1.);
 
 }

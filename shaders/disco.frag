@@ -1,13 +1,10 @@
-#ifdef GL_ES
-precision mediump float;
-#endif
-
-#extension GL_OES_standard_derivatives : enable
+#version 140
 
 uniform float time;
 uniform vec2 mouse;
 uniform vec2 resolution;
 uniform sampler2D backbuffer;
+out vec4 color;
 
 /****** CONFIG *************************************/
 
@@ -192,5 +189,5 @@ void main(void)
 		c = mix(vec3(0.03), c, mag);
 	}
 
-	gl_FragColor = vec4(c, 1.0);
+	color = vec4(c, 1.0);
 }

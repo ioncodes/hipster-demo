@@ -13,25 +13,25 @@ fn main() {
     });
     scenes.insert(1, Scene {
         add_size: 0.0,
-        add_time: 0.001,
+        add_time: 0.01,
         fragment: include_str!("../shaders/color_build.frag").to_owned(),
         name: "Color Build".to_owned()
     });
     scenes.insert(2, Scene {
         add_size: 0.0,
-        add_time: 0.001,
+        add_time: 0.01,
         fragment: include_str!("../shaders/color_loop.frag").to_owned(),
         name: "Color Loop".to_owned()
     });
     scenes.insert(3, Scene {
         add_size: 0.0,
-        add_time: 0.001,
+        add_time: 0.01,
         fragment: include_str!("../shaders/color_loop_metal.frag").to_owned(),
         name: "Color Loop Metal".to_owned()
     });
     scenes.insert(4, Scene {
         add_size: 0.0,
-        add_time: 0.001,
+        add_time: 0.01,
         fragment: include_str!("../shaders/color_unfold.frag").to_owned(),
         name: "Color Unfold".to_owned()
     });
@@ -79,7 +79,7 @@ fn main() {
     });
     scenes.insert(12, Scene {
         add_size: 0.0,
-        add_time: 0.001,
+        add_time: 0.01,
         fragment: include_str!("../shaders/disco.frag").to_owned(),
         name: "Disco".to_owned()
     });
@@ -98,7 +98,8 @@ fn main() {
     let window = glutin::WindowBuilder::new()
                         .with_dimensions(1024, 768)
                         .with_title("hipster demo");
-    let context = glutin::ContextBuilder::new();
+    let context = glutin::ContextBuilder::new()
+                        .with_vsync(true);
     let display = glium::Display::new(window, context, &events_loop).unwrap();
 
     #[derive(Copy, Clone)]

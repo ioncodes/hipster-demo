@@ -1,5 +1,8 @@
+#version 140
+
 uniform float time;
 uniform vec2 resolution;
+out vec4 color;
 
 void main()
 {
@@ -29,7 +32,7 @@ void main()
 		
         q += p * d;
         
-        gl_FragColor = vec4(i);
+        color = vec4(i);
 			
         if(d < 1e-5) break;
     }

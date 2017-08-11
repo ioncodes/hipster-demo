@@ -1,16 +1,11 @@
-// http://glslsandbox.com/e#41123.1
-
-#ifdef GL_ES
-precision mediump float;
-#endif
-
-#extension GL_OES_standard_derivatives : enable
+#version 140
 
 const float EPS = 0.0001;
 
 uniform float time;
 uniform vec2 mouse;
 uniform vec2 resolution;
+out vec4 fragColor;
 
 float exposeInOut(float t) {
 	if (t == 0.0) {
@@ -105,5 +100,5 @@ void main( void ) {
 		color = vec3(0.12);
 	}
 	
-	gl_FragColor = vec4(color + 0.05 * currentRayLength, 1.0);
+	fragColor = vec4(color + 0.05 * currentRayLength, 1.0);
 }

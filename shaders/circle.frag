@@ -2,6 +2,7 @@
 
 uniform float size;
 uniform vec2 resolution;
+out vec4 color;
 
 float sinm(float t, float vmin, float vmax)
 {
@@ -30,5 +31,5 @@ void main( void ) {
 		alpha *= 0.405;
 	}
 
-	gl_FragColor = vec4(d*vec3(0.25,0.35,0.45),1.0);
+	color = vec4(d*vec3(0.25,0.35,0.45),1.0);
 }

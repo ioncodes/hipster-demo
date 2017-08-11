@@ -1,5 +1,8 @@
+#version 140
+
 uniform float time;
 uniform vec2 resolution;
+out vec4 color;
 
 // rotate position around axis
 vec2 rotate(vec2 p, float a) {
@@ -113,5 +116,5 @@ void main(void) {
 
     vec3 col = vec3(pow(v, cexp.x), pow(v, cexp.y), pow(v, cexp.z)) * 2.0;
 
-    gl_FragColor = vec4(col, 1.0);
+    color = vec4(col, 1.0);
 }

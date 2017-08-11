@@ -1,3 +1,7 @@
+#version 140
+
+out vec4 color;
+
 float check(vec2 p, float size) {
     return mod(floor(p.x * size) + floor(p.y * size), 3.0);
 }
@@ -103,5 +107,5 @@ void main(void) {
 
     vec3 co = vec3(0.0);
     co = mix(vec3(2.0, 0.8, 0.1), vec3(0.0, 0.0, 0.0), smoothstep(0.01, 0.05, di) - (0.01 / di));
-    gl_FragColor = vec4(co, 1.0) + colour(c);
+    color = vec4(co, 1.0) + colour(c);
 }

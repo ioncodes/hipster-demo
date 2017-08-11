@@ -1,11 +1,14 @@
+#version 140
+
 uniform float time;
 uniform vec2 resolution;
+out vec4 color;
 
 void mainImage( out vec4 fragColor, in vec2 fragCoord );
 
 void main( void ) {
 	
-	mainImage( gl_FragColor, gl_FragCoord.xy );
+	mainImage( color, gl_FragCoord.xy );
 
 }
 
